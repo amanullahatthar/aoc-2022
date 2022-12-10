@@ -1,5 +1,5 @@
 import { readFileSync } from "node:fs";
-import { manhattanDistance } from "../utils.mjs";
+import { chebyshevDistance } from "../utils.mjs";
 
 const lines = readFileSync('input.txt', { encoding: 'utf-8' })
 	.replace(/\r/g, "")
@@ -32,7 +32,7 @@ class Position {
 	}
 
 	follow(pos) {
-		const dist = manhattanDistance(this, pos);
+		const dist = chebyshevDistance(this, pos);
 		if (dist <= 1) return;
 
 		const deltaX = pos.x - this.x;
